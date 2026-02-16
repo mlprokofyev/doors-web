@@ -1,0 +1,16 @@
+{
+  "name": "doors-web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "dev:clean": "rm -rf node_modules/.vite .astro && astro dev",
+    "build": "astro build",
+    "build:clean": "rm -rf node_modules/.vite .astro dist && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.17.1"
+  }
+}

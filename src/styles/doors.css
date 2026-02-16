@@ -1,0 +1,43 @@
+/* Doors hub page layout */
+.doors-header {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+}
+
+.doors-header__title {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: var(--color-text);
+  letter-spacing: 0.08em;
+}
+
+.doors-header__title a {
+  transition: color 0.2s;
+}
+
+.doors-header__title a:hover {
+  color: var(--color-accent);
+}
+
+/* Door grid — continuous wall, no gaps */
+.doors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0;
+  width: 100%;
+}
+
+/* Dark void overlay — used during door-open transition */
+.void-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-void);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+  transition: opacity 300ms ease-in;
+}
+
+.void-overlay--active {
+  opacity: 1;
+  pointer-events: all;
+}

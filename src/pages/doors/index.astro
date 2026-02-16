@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Door from '../../components/Door.astro';
+import doors from '../../content/doors.json';
+import '../../styles/doors.css';
+---
+
+<BaseLayout title="Doors." description="A wall of doors. Each one leads somewhere.">
+  <header class="doors-header">
+    <h1 class="doors-header__title">
+      <a href="/">Doors.</a>
+    </h1>
+  </header>
+
+  <main class="doors-grid">
+    {doors.map((door) => (
+      <Door
+        number={door.number}
+        status={door.status as 'active' | 'inactive'}
+        title={door.title}
+      />
+    ))}
+  </main>
+
+  <div class="void-overlay" id="void-overlay"></div>
+
+  <script src="../../scripts/doors.ts"></script>
+</BaseLayout>

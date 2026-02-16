@@ -1,0 +1,258 @@
+---
+interface Props {
+  number: number;
+  status: 'active' | 'inactive';
+  title?: string;
+}
+
+const { number, status, title } = Astro.props;
+const isActive = status === 'active';
+const href = isActive ? `/doors/${number}/` : undefined;
+const label = isActive
+  ? `Door ${number}: ${title ?? 'Enter'}`
+  : `Door ${number}: Locked`;
+---
+
+{isActive ? (
+  <a
+    href={href}
+    class="door door--active"
+    aria-label={label}
+    data-door={number}
+  >
+    <div class="door__frame">
+      <div class="door__panel door__panel--active">
+        <div class="door__hinge door__hinge--top"></div>
+        <div class="door__hinge door__hinge--bottom"></div>
+        <div class="door__peephole"></div>
+        <div class="door__knob-plate">
+          <div class="door__knob"></div>
+        </div>
+        <span class="door__number door__number--active">{number}</span>
+      </div>
+    </div>
+  </a>
+) : (
+  <div
+    class="door door--inactive"
+    aria-label={label}
+    aria-disabled="true"
+    tabindex={-1}
+  >
+    <div class="door__sprite">
+      <div class="door__panel door__panel--inactive">
+        <div class="door__knob door__knob--inactive"></div>
+      </div>
+    </div>
+    <span class="door__number">{number}</span>
+  </div>
+)}
+
+<style>
+  /* Kill any inherited borders/outlines on every element inside the tile */
+  .door,
+  .door * {
+    border: 0 none;
+    outline: 0 none;
+  }
+
+  /* ===== Shared tile ===== */
+  .door {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: default;
+    background: #000;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    text-decoration: none;
+  }
+
+  /* ===== Active door — red, distinguished ===== */
+  .door--active {
+    cursor: pointer;
+  }
+
+  .door--active:hover {
+    transform: scale(1.03);
+    z-index: 1;
+  }
+
+  .door--active:hover .door__panel--active {
+    filter: brightness(1.12);
+    box-shadow:
+      inset 0 0 12px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(180, 40, 40, 0.35);
+  }
+
+  /* Dark red door frame surround */
+  .door__frame {
+    width: 66%;
+    height: 80%;
+    background: #1a0808;
+    padding: 4px 4px 0 4px;
+    border-radius: 3px 3px 0 0;
+    box-shadow:
+      inset 0 0 6px rgba(0, 0, 0, 0.8),
+      0 2px 8px rgba(0, 0, 0, 0.6);
+    position: relative;
+  }
+
+  /* Red door panel */
+  .door__panel--active {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(175deg, #b83030 0%, #8b1e1e 60%, #6e1818 100%);
+    border-radius: 2px 2px 0 0;
+    transition: filter 0.2s, box-shadow 0.2s;
+    box-shadow:
+      inset 0 0 12px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Decorative hinges */
+  .door__hinge {
+    position: absolute;
+    left: -1px;
+    width: 6px;
+    height: 12px;
+    background: #444;
+    border-radius: 1px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  }
+
+  .door__hinge--top { top: 14%; }
+  .door__hinge--bottom { bottom: 14%; }
+
+  /* Peephole */
+  .door__peephole {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #0a0202;
+    box-shadow:
+      inset 0 0 3px rgba(0, 0, 0, 0.9),
+      0 0 0 2px #555;
+  }
+
+  /* Knob plate + knob */
+  .door__knob-plate {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 22px;
+    background: #555;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .door__panel--active .door__knob {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #f0d080, #c8a96e 60%, #9a7840);
+    box-shadow:
+      0 0 6px rgba(200, 169, 110, 0.7),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+    animation: knobGlow 2.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes knobGlow {
+    0% { box-shadow: 0 0 4px rgba(200, 169, 110, 0.5); }
+    100% { box-shadow: 0 0 10px rgba(220, 180, 100, 0.9), 0 0 20px rgba(200, 160, 80, 0.3); }
+  }
+
+  /* Number — gold plaque */
+  .door__number--active {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-pixel);
+    font-size: clamp(0.55rem, 1.6vw, 0.75rem);
+    color: #f0d080;
+    pointer-events: none;
+    text-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.9),
+      0 0 6px rgba(200, 160, 80, 0.4);
+    background: rgba(0, 0, 0, 0.35);
+    padding: 2px 5px;
+    border-radius: 1px;
+    box-shadow: 0 0 0 1px rgba(200, 169, 110, 0.3);
+  }
+
+  /* ===== Inactive door — grey, flat ===== */
+  .door--inactive {
+    cursor: not-allowed;
+  }
+
+  .door__sprite {
+    width: 60%;
+    height: 75%;
+    position: relative;
+    image-rendering: pixelated;
+  }
+
+  .door__panel--inactive {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    position: relative;
+    background: #3a3a3a;
+    box-shadow:
+      inset 0 0 0 2px #444,
+      inset 0 0 8px rgba(0, 0, 0, 0.5),
+      0 0 0 3px #2a2a2a;
+    filter: grayscale(1) brightness(0.5);
+  }
+
+  .door__knob--inactive {
+    position: absolute;
+    right: 12%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #555;
+    transform: translateY(-50%);
+  }
+
+  /* Inactive number */
+  .door__number {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-pixel);
+    font-size: clamp(0.5rem, 1.5vw, 0.7rem);
+    color: var(--color-text-muted);
+    pointer-events: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+  /* ===== Open animation ===== */
+  .door--opening .door__panel--active {
+    animation: doorSwing 500ms steps(6) forwards;
+    transform-origin: left center;
+  }
+
+  @keyframes doorSwing {
+    0% { transform: perspective(600px) rotateY(0deg); }
+    100% { transform: perspective(600px) rotateY(-85deg); }
+  }
+</style>
