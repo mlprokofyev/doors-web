@@ -1,0 +1,42 @@
+name: Build & Notify Orchestrator
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: main-site
+          path: dist/
+          retention-days: 90
+
+  trigger-deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch deploy-orchestrator
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DEPLOY_PAT }}
+          repository: mlprokofyev/deploy-orchestrator
+          event-type: deploy
+          client-payload: '{"repo": "doors-web", "ref": "${{ github.sha }}"}'
