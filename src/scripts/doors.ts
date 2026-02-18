@@ -3,7 +3,7 @@
  * Loaded on the /doors hub page only.
  */
 
-const ANIMATION_DURATION = 500;
+const ANIMATION_DURATION = 600;
 const VOID_TRANSITION = 300;
 
 function init(): void {

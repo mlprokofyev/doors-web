@@ -7,6 +7,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h1 class="landing__title">Doors.</h1>
     <a href="/doors" class="landing__enter">Enter</a>
   </main>
+  <footer class="landing-footer">
+    <a href="https://t.me/justhappymisha" class="landing-footer__link" target="_blank" rel="noopener">by justhappymike</a>
+  </footer>
 </BaseLayout>
 
 <style>
@@ -39,5 +42,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-accent);
     border-color: var(--color-accent);
     outline: none;
+  }
+
+  .landing-footer {
+    position: fixed;
+    bottom: 1.2rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .landing-footer__link {
+    font-family: var(--font-pixel);
+    font-size: clamp(0.4rem, 1vw, 0.55rem);
+    color: var(--color-text-muted);
+    transition: color 0.2s;
+  }
+
+  .landing-footer__link:hover {
+    color: var(--color-text);
   }
 </style>
