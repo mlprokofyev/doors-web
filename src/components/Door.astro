@@ -20,16 +20,55 @@ const label = isActive
     aria-label={label}
     data-door={number}
   >
-    <div class="door__frame">
-      <div class="door__panel door__panel--active">
-        <div class="door__hinge door__hinge--top"></div>
-        <div class="door__hinge door__hinge--bottom"></div>
-        <div class="door__peephole"></div>
-        <div class="door__knob-plate">
-          <div class="door__knob"></div>
-        </div>
-        <span class="door__number door__number--active">{number}</span>
+    <div class="door__ornate-frame">
+      <div class="door__crown">
+        <div class="door__crown-sun"></div>
       </div>
+      <div class="door__body">
+        <div class="door__pillar door__pillar--left">
+          <div class="door__pillar-cap"></div>
+          <div class="door__pillar-motif"></div>
+          <div class="door__pillar-motif"></div>
+          <div class="door__pillar-motif"></div>
+          <div class="door__pillar-motif"></div>
+          <div class="door__pillar-foot"></div>
+        </div>
+        <div class="door__inner">
+          <div class="door__panel door__panel--active">
+            <div class="door__half door__half--left">
+              <div class="door__cell door__cell--top"></div>
+              <div class="door__cell"></div>
+              <div class="door__cell door__cell--accent"></div>
+              <div class="door__cell"></div>
+              <div class="door__cell door__cell--accent"></div>
+              <div class="door__cell"></div>
+              <div class="door__cell door__cell--bottom"></div>
+            </div>
+            <div class="door__half door__half--right">
+              <div class="door__cell door__cell--top"></div>
+              <div class="door__cell"></div>
+              <div class="door__cell door__cell--accent"></div>
+              <div class="door__cell"></div>
+              <div class="door__cell door__cell--accent"></div>
+              <div class="door__cell"></div>
+              <div class="door__cell door__cell--bottom"></div>
+            </div>
+            <span class="door__number door__number--active">{number}</span>
+            <div class="door__handle">
+              <div class="door__handle-ring"></div>
+            </div>
+          </div>
+        </div>
+        <div class="door__pillar door__pillar--right">
+          <div class="door__pillar-cap"></div>
+          <div class="door__pillar-motif"></div>
+          <div class="door__pillar-motif"></div>
+          <div class="door__pillar-motif"></div>
+          <div class="door__pillar-motif"></div>
+          <div class="door__pillar-foot"></div>
+        </div>
+      </div>
+      <div class="door__base"></div>
     </div>
   </a>
 ) : (
@@ -73,7 +112,7 @@ const label = isActive
     text-decoration: none;
   }
 
-  /* ===== Active door — red, distinguished ===== */
+  /* ===== Active door — Slavic carved wood ===== */
   .door--active {
     cursor: pointer;
   }
@@ -85,115 +124,370 @@ const label = isActive
 
   .door--active:hover .door__panel--active {
     filter: brightness(1.12);
-    box-shadow:
-      inset 0 0 12px rgba(0, 0, 0, 0.4),
-      0 0 20px rgba(180, 40, 40, 0.35);
   }
 
-  /* Dark red door frame surround */
-  .door__frame {
-    width: 66%;
-    height: 80%;
-    background: #1a0808;
-    padding: 4px 4px 0 4px;
-    border-radius: 3px 3px 0 0;
+  .door--active:hover .door__ornate-frame {
     box-shadow:
-      inset 0 0 6px rgba(0, 0, 0, 0.8),
-      0 2px 8px rgba(0, 0, 0, 0.6);
+      0 0 24px rgba(80, 120, 150, 0.25),
+      0 0 60px rgba(60, 90, 120, 0.1);
+  }
+
+  /* Outer ornate frame */
+  .door__ornate-frame {
+    width: 76%;
+    height: 90%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s;
   }
 
-  /* Red door panel */
-  .door__panel--active {
+  /* ---- Crown molding with sun motif ---- */
+  .door__crown {
     width: 100%;
-    height: 100%;
-    position: relative;
-    background: linear-gradient(175deg, #b83030 0%, #8b1e1e 60%, #6e1818 100%);
+    height: 7%;
+    background: linear-gradient(180deg, #3a4855 0%, #2e3e4a 30%, #253340 60%, #1e2a35 100%);
     border-radius: 2px 2px 0 0;
-    transition: filter 0.2s, box-shadow 0.2s;
     box-shadow:
-      inset 0 0 12px rgba(0, 0, 0, 0.5),
-      0 2px 8px rgba(0, 0, 0, 0.5);
-  }
-
-  /* Decorative hinges */
-  .door__hinge {
-    position: absolute;
-    left: -1px;
-    width: 6px;
-    height: 12px;
-    background: #444;
-    border-radius: 1px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  }
-
-  .door__hinge--top { top: 14%; }
-  .door__hinge--bottom { bottom: 14%; }
-
-  /* Peephole */
-  .door__peephole {
-    position: absolute;
-    top: 18%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #0a0202;
-    box-shadow:
-      inset 0 0 3px rgba(0, 0, 0, 0.9),
-      0 0 0 2px #555;
-  }
-
-  /* Knob plate + knob */
-  .door__knob-plate {
-    position: absolute;
-    right: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 14px;
-    height: 22px;
-    background: #555;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      inset 0 1px 0 rgba(90, 120, 140, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .door__panel--active .door__knob {
+  /* Carved dentil row */
+  .door__crown::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 3%;
+    right: 3%;
+    height: 35%;
+    background: repeating-linear-gradient(
+      90deg,
+      #354550 0px, #354550 2px,
+      #1e2a35 2px, #1e2a35 4px
+    );
+    image-rendering: pixelated;
+  }
+
+  /* Top carved rope/braid pattern */
+  .door__crown::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 3%;
+    right: 3%;
+    height: 30%;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(90, 130, 160, 0.2) 0px, rgba(90, 130, 160, 0.2) 3px,
+      transparent 3px, transparent 4px,
+      rgba(90, 130, 160, 0.1) 4px, rgba(90, 130, 160, 0.1) 5px,
+      transparent 5px, transparent 8px
+    );
+    image-rendering: pixelated;
+  }
+
+  /* Solar/sun symbol in crown center */
+  .door__crown-sun {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #f0d080, #c8a96e 60%, #9a7840);
+    background: radial-gradient(circle, #7aa0b8 0%, #4a7088 60%, #2e4858 100%);
     box-shadow:
-      0 0 6px rgba(200, 169, 110, 0.7),
-      inset 0 -1px 2px rgba(0, 0, 0, 0.3);
-    animation: knobGlow 2.5s ease-in-out infinite alternate;
+      0 0 0 1px rgba(90, 130, 160, 0.4),
+      0 0 6px rgba(80, 120, 150, 0.3);
+    z-index: 1;
+    position: relative;
   }
 
-  @keyframes knobGlow {
-    0% { box-shadow: 0 0 4px rgba(200, 169, 110, 0.5); }
-    100% { box-shadow: 0 0 10px rgba(220, 180, 100, 0.9), 0 0 20px rgba(200, 160, 80, 0.3); }
+  /* Sun rays */
+  .door__crown-sun::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1px dashed rgba(90, 130, 160, 0.35);
   }
 
-  /* Number — gold plaque */
+  /* ---- Main body: pillars + door ---- */
+  .door__body {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+  }
+
+  /* Ornate side pillars — carved wood */
+  .door__pillar {
+    width: 12%;
+    background: linear-gradient(180deg, #2e3e4a 0%, #263545 40%, #1e2d3a 70%, #1a2530 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px 0;
+    gap: 1px;
+  }
+
+  /* Pillar column cap */
+  .door__pillar-cap {
+    width: 80%;
+    height: 4%;
+    min-height: 4px;
+    background: linear-gradient(180deg, #3a5060, #2a3e4e);
+    box-shadow:
+      inset 0 1px 0 rgba(90, 130, 160, 0.3),
+      0 1px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  /* Repeating diamond/rhombus motif blocks */
+  .door__pillar-motif {
+    flex: 1;
+    width: 70%;
+    position: relative;
+    background: linear-gradient(180deg, #253340, #2e3e4a 50%, #253340);
+    box-shadow:
+      inset 0 0 0 1px rgba(90, 130, 160, 0.08);
+  }
+
+  /* Diamond shape inside each motif */
+  .door__pillar-motif::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    background: rgba(80, 120, 150, 0.1);
+    transform: rotate(45deg);
+    box-shadow:
+      inset 0 0 0 1px rgba(90, 130, 160, 0.2),
+      0 0 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Dot at diamond center */
+  .door__pillar-motif::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    transform: translate(-50%, -50%);
+    background: rgba(90, 130, 160, 0.4);
+    border-radius: 50%;
+  }
+
+  /* Pillar foot */
+  .door__pillar-foot {
+    width: 80%;
+    height: 4%;
+    min-height: 4px;
+    background: linear-gradient(180deg, #2a3e4e, #1a2530);
+    box-shadow:
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+      0 -1px 0 rgba(90, 130, 160, 0.1);
+  }
+
+  .door__pillar--left {
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.4), inset 1px 0 0 rgba(80, 110, 130, 0.15);
+  }
+
+  .door__pillar--right {
+    box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.4), inset -1px 0 0 rgba(80, 110, 130, 0.15);
+  }
+
+  /* ---- Inner door area ---- */
+  .door__inner {
+    flex: 1;
+    min-width: 0;
+    background: #1a2530;
+    padding: 3px 2px;
+  }
+
+  /* Door panel */
+  .door__panel--active {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: linear-gradient(175deg, #3e5565 0%, #344a5a 30%, #2c4050 60%, #253545 100%);
+    transition: filter 0.2s;
+    position: relative;
+  }
+
+  /* Each door half */
+  .door__half {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 2px;
+  }
+
+  .door__half--left {
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .door__half--right {
+    border-left: 1px solid rgba(70, 100, 120, 0.1);
+  }
+
+  /* Recessed panel cell — warm wood */
+  .door__cell {
+    flex: 1;
+    background: linear-gradient(170deg, #3a5060 0%, #2e4452 50%, #283c4c 100%);
+    box-shadow:
+      inset 1px 1px 0 rgba(80, 115, 135, 0.2),
+      inset -1px -1px 0 rgba(0, 0, 0, 0.35),
+      inset 2px 2px 3px rgba(0, 0, 0, 0.15),
+      inset -2px -2px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  /* Accent cells — with carved rosette/circle motif */
+  .door__cell--accent::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(90, 130, 160, 0.18);
+    background: radial-gradient(circle, rgba(80, 120, 150, 0.08) 0%, transparent 70%);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Top cells — subtle arch carved line */
+  .door__cell--top {
+    border-radius: 1px 1px 0 0;
+  }
+
+  .door__cell--top::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    right: 15%;
+    height: 40%;
+    border-radius: 50% 50% 0 0;
+    border-top: 1px solid rgba(90, 130, 160, 0.15);
+    border-left: 1px solid rgba(90, 130, 160, 0.1);
+    border-right: 1px solid rgba(90, 130, 160, 0.1);
+  }
+
+  /* Bottom cells — horizontal carved line */
+  .door__cell--bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 25%;
+    left: 20%;
+    right: 20%;
+    height: 0;
+    border-bottom: 1px solid rgba(90, 130, 160, 0.12);
+  }
+
+  /* Wood grain texture overlay on entire panel */
+  .door__panel--active::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        175deg,
+        transparent 0px,
+        transparent 4px,
+        rgba(0, 0, 0, 0.04) 4px,
+        rgba(0, 0, 0, 0.04) 5px,
+        transparent 5px,
+        transparent 11px,
+        rgba(90, 130, 160, 0.03) 11px,
+        rgba(90, 130, 160, 0.03) 12px,
+        transparent 12px,
+        transparent 18px
+      );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ---- Base/threshold ---- */
+  .door__base {
+    width: 100%;
+    height: 3%;
+    background: linear-gradient(180deg, #1e2d3a, #162028);
+    box-shadow: inset 0 1px 0 rgba(70, 100, 120, 0.15);
+  }
+
+  /* ---- Number plaque — brass/gold ---- */
   .door__number--active {
     position: absolute;
-    top: 30%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
     font-family: var(--font-pixel);
-    font-size: clamp(0.55rem, 1.6vw, 0.75rem);
-    color: #f0d080;
+    font-size: clamp(0.45rem, 1.2vw, 0.6rem);
+    color: #8ab0c8;
     pointer-events: none;
+    z-index: 2;
     text-shadow:
       0 1px 1px rgba(0, 0, 0, 0.9),
-      0 0 6px rgba(200, 160, 80, 0.4);
-    background: rgba(0, 0, 0, 0.35);
-    padding: 2px 5px;
-    border-radius: 1px;
-    box-shadow: 0 0 0 1px rgba(200, 169, 110, 0.3);
+      0 0 4px rgba(100, 160, 200, 0.3);
+    background: rgba(20, 35, 48, 0.6);
+    padding: 1px 4px;
+    line-height: 1.4;
+    border: 1px solid rgba(100, 140, 170, 0.2);
+  }
+
+  /* ---- Oriental ring-pull handle ---- */
+  .door__handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #2e4858, #1a3040 60%, #122430);
+    box-shadow:
+      0 0 0 2px #1a2e3e,
+      0 0 0 3px rgba(80, 120, 150, 0.2),
+      0 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Raised ring */
+  .door__handle-ring {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #3a5a70;
+    background: transparent;
+    box-shadow:
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(100, 150, 180, 0.25),
+      0 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    top: 1px;
+  }
+
+  /* Highlight glint on ring */
+  .door__handle-ring::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 2px;
+    width: 3px;
+    height: 2px;
+    border-radius: 50%;
+    background: rgba(120, 170, 200, 0.35);
   }
 
   /* ===== Inactive door — grey, flat ===== */
@@ -246,8 +540,33 @@ const label = isActive
   }
 
   /* ===== Open animation ===== */
-  .door--opening .door__panel--active {
-    animation: doorSwing 500ms steps(6) forwards;
+  .door__inner {
+    position: relative;
+    transform-style: preserve-3d;
+  }
+
+  /* Door edge — visible thickness during swing */
+  .door__inner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -8px;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(90deg, #1a2530, #141e28);
+    transform: rotateY(90deg);
+    transform-origin: left center;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.05s;
+  }
+
+  .door--opening .door__inner::after {
+    opacity: 1;
+  }
+
+  .door--opening .door__inner {
+    animation: doorSwing 600ms steps(8) forwards;
     transform-origin: left center;
   }
 
