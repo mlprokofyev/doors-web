@@ -104,7 +104,7 @@ const label = isActive
     justify-content: center;
     overflow: hidden;
     cursor: default;
-    background: #000;
+    background: #0a0a0a;
     padding: 0;
     margin: 0;
     -webkit-appearance: none;
@@ -127,9 +127,7 @@ const label = isActive
   }
 
   .door--active:hover .door__ornate-frame {
-    box-shadow:
-      0 0 24px rgba(80, 120, 150, 0.25),
-      0 0 60px rgba(60, 90, 120, 0.1);
+    box-shadow: none;
   }
 
   /* Outer ornate frame */
@@ -146,10 +144,10 @@ const label = isActive
   .door__crown {
     width: 100%;
     height: 7%;
-    background: linear-gradient(180deg, #3a4855 0%, #2e3e4a 30%, #253340 60%, #1e2a35 100%);
+    background: linear-gradient(180deg, #222828 0%, #1c2222 30%, #181e1e 60%, #141a1a 100%);
     border-radius: 2px 2px 0 0;
     box-shadow:
-      inset 0 1px 0 rgba(90, 120, 140, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
       inset 0 -1px 0 rgba(0, 0, 0, 0.5);
     position: relative;
     display: flex;
@@ -167,8 +165,8 @@ const label = isActive
     height: 35%;
     background: repeating-linear-gradient(
       90deg,
-      #354550 0px, #354550 2px,
-      #1e2a35 2px, #1e2a35 4px
+      #222828 0px, #222828 2px,
+      #141a1a 2px, #141a1a 4px
     );
     image-rendering: pixelated;
   }
@@ -183,9 +181,9 @@ const label = isActive
     height: 30%;
     background: repeating-linear-gradient(
       90deg,
-      rgba(90, 130, 160, 0.2) 0px, rgba(90, 130, 160, 0.2) 3px,
+      rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 3px,
       transparent 3px, transparent 4px,
-      rgba(90, 130, 160, 0.1) 4px, rgba(90, 130, 160, 0.1) 5px,
+      rgba(255, 255, 255, 0.03) 4px, rgba(255, 255, 255, 0.03) 5px,
       transparent 5px, transparent 8px
     );
     image-rendering: pixelated;
@@ -196,10 +194,10 @@ const label = isActive
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: radial-gradient(circle, #7aa0b8 0%, #4a7088 60%, #2e4858 100%);
+    background: radial-gradient(circle, #303838 0%, #222828 60%, #181e1e 100%);
     box-shadow:
-      0 0 0 1px rgba(90, 130, 160, 0.4),
-      0 0 6px rgba(80, 120, 150, 0.3);
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 0 4px rgba(0, 0, 0, 0.4);
     z-index: 1;
     position: relative;
   }
@@ -210,7 +208,7 @@ const label = isActive
     position: absolute;
     inset: -3px;
     border-radius: 50%;
-    border: 1px dashed rgba(90, 130, 160, 0.35);
+    border: 1px dashed rgba(255, 255, 255, 0.08);
   }
 
   /* ---- Main body: pillars + door ---- */
@@ -223,7 +221,7 @@ const label = isActive
   /* Ornate side pillars — carved wood */
   .door__pillar {
     width: 12%;
-    background: linear-gradient(180deg, #2e3e4a 0%, #263545 40%, #1e2d3a 70%, #1a2530 100%);
+    background: linear-gradient(180deg, #1c2222 0%, #181e1e 40%, #141a1a 70%, #111616 100%);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -238,9 +236,9 @@ const label = isActive
     width: 80%;
     height: 4%;
     min-height: 4px;
-    background: linear-gradient(180deg, #3a5060, #2a3e4e);
+    background: linear-gradient(180deg, #222828, #181e1e);
     box-shadow:
-      inset 0 1px 0 rgba(90, 130, 160, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
       0 1px 0 rgba(0, 0, 0, 0.4);
   }
 
@@ -249,9 +247,9 @@ const label = isActive
     flex: 1;
     width: 70%;
     position: relative;
-    background: linear-gradient(180deg, #253340, #2e3e4a 50%, #253340);
+    background: linear-gradient(180deg, #181e1e, #1c2222 50%, #181e1e);
     box-shadow:
-      inset 0 0 0 1px rgba(90, 130, 160, 0.08);
+      inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   }
 
   /* Diamond shape inside each motif */
@@ -262,10 +260,10 @@ const label = isActive
     left: 15%;
     right: 15%;
     bottom: 15%;
-    background: rgba(80, 120, 150, 0.1);
+    background: rgba(255, 255, 255, 0.03);
     transform: rotate(45deg);
     box-shadow:
-      inset 0 0 0 1px rgba(90, 130, 160, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05),
       0 0 2px rgba(0, 0, 0, 0.3);
   }
 
@@ -278,7 +276,7 @@ const label = isActive
     width: 2px;
     height: 2px;
     transform: translate(-50%, -50%);
-    background: rgba(90, 130, 160, 0.4);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
   }
 
@@ -287,25 +285,25 @@ const label = isActive
     width: 80%;
     height: 4%;
     min-height: 4px;
-    background: linear-gradient(180deg, #2a3e4e, #1a2530);
+    background: linear-gradient(180deg, #181e1e, #111616);
     box-shadow:
       inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-      0 -1px 0 rgba(90, 130, 160, 0.1);
+      0 -1px 0 rgba(255, 255, 255, 0.03);
   }
 
   .door__pillar--left {
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.4), inset 1px 0 0 rgba(80, 110, 130, 0.15);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.4), inset 1px 0 0 rgba(255, 255, 255, 0.03);
   }
 
   .door__pillar--right {
-    box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.4), inset -1px 0 0 rgba(80, 110, 130, 0.15);
+    box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.4), inset -1px 0 0 rgba(255, 255, 255, 0.03);
   }
 
   /* ---- Inner door area ---- */
   .door__inner {
     flex: 1;
     min-width: 0;
-    background: #1a2530;
+    background: #111616;
     padding: 3px 2px;
   }
 
@@ -314,7 +312,7 @@ const label = isActive
     width: 100%;
     height: 100%;
     display: flex;
-    background: linear-gradient(175deg, #3e5565 0%, #344a5a 30%, #2c4050 60%, #253545 100%);
+    background: linear-gradient(175deg, #55363e 0%, #4a2e34 30%, #40252c 60%, #352025 100%);
     transition: filter 0.2s;
     position: relative;
   }
@@ -333,15 +331,15 @@ const label = isActive
   }
 
   .door__half--right {
-    border-left: 1px solid rgba(70, 100, 120, 0.1);
+    border-left: 1px solid rgba(120, 70, 80, 0.1);
   }
 
   /* Recessed panel cell — warm wood */
   .door__cell {
     flex: 1;
-    background: linear-gradient(170deg, #3a5060 0%, #2e4452 50%, #283c4c 100%);
+    background: linear-gradient(170deg, #503a42 0%, #422e36 50%, #3a2830 100%);
     box-shadow:
-      inset 1px 1px 0 rgba(80, 115, 135, 0.2),
+      inset 1px 1px 0 rgba(140, 80, 95, 0.2),
       inset -1px -1px 0 rgba(0, 0, 0, 0.35),
       inset 2px 2px 3px rgba(0, 0, 0, 0.15),
       inset -2px -2px 3px rgba(0, 0, 0, 0.1);
@@ -358,8 +356,8 @@ const label = isActive
     aspect-ratio: 1;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 1px solid rgba(90, 130, 160, 0.18);
-    background: radial-gradient(circle, rgba(80, 120, 150, 0.08) 0%, transparent 70%);
+    border: 1px solid rgba(160, 90, 110, 0.18);
+    background: radial-gradient(circle, rgba(150, 80, 100, 0.08) 0%, transparent 70%);
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
   }
 
@@ -376,9 +374,9 @@ const label = isActive
     right: 15%;
     height: 40%;
     border-radius: 50% 50% 0 0;
-    border-top: 1px solid rgba(90, 130, 160, 0.15);
-    border-left: 1px solid rgba(90, 130, 160, 0.1);
-    border-right: 1px solid rgba(90, 130, 160, 0.1);
+    border-top: 1px solid rgba(160, 90, 110, 0.15);
+    border-left: 1px solid rgba(160, 90, 110, 0.1);
+    border-right: 1px solid rgba(160, 90, 110, 0.1);
   }
 
   /* Bottom cells — horizontal carved line */
@@ -389,7 +387,7 @@ const label = isActive
     left: 20%;
     right: 20%;
     height: 0;
-    border-bottom: 1px solid rgba(90, 130, 160, 0.12);
+    border-bottom: 1px solid rgba(160, 90, 110, 0.12);
   }
 
   /* Wood grain texture overlay on entire panel */
@@ -406,8 +404,8 @@ const label = isActive
         rgba(0, 0, 0, 0.04) 5px,
         transparent 5px,
         transparent 11px,
-        rgba(90, 130, 160, 0.03) 11px,
-        rgba(90, 130, 160, 0.03) 12px,
+        rgba(160, 90, 110, 0.03) 11px,
+        rgba(160, 90, 110, 0.03) 12px,
         transparent 12px,
         transparent 18px
       );
@@ -419,8 +417,8 @@ const label = isActive
   .door__base {
     width: 100%;
     height: 3%;
-    background: linear-gradient(180deg, #1e2d3a, #162028);
-    box-shadow: inset 0 1px 0 rgba(70, 100, 120, 0.15);
+    background: linear-gradient(180deg, #141a1a, #0e1212);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
   }
 
   /* ---- Number plaque — brass/gold ---- */
@@ -431,16 +429,16 @@ const label = isActive
     transform: translateX(-50%);
     font-family: var(--font-pixel);
     font-size: clamp(0.45rem, 1.2vw, 0.6rem);
-    color: #8ab0c8;
+    color: #c8a0a8;
     pointer-events: none;
     z-index: 2;
     text-shadow:
       0 1px 1px rgba(0, 0, 0, 0.9),
-      0 0 4px rgba(100, 160, 200, 0.3);
-    background: rgba(20, 35, 48, 0.6);
+      0 0 4px rgba(180, 100, 120, 0.3);
+    background: rgba(40, 18, 22, 0.6);
     padding: 1px 4px;
     line-height: 1.4;
-    border: 1px solid rgba(100, 140, 170, 0.2);
+    border: 1px solid rgba(160, 90, 110, 0.2);
   }
 
   /* ---- Oriental ring-pull handle ---- */
@@ -452,10 +450,10 @@ const label = isActive
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: radial-gradient(circle at 40% 35%, #2e4858, #1a3040 60%, #122430);
+    background: radial-gradient(circle at 40% 35%, #252b2b, #1a1e1e 60%, #111414);
     box-shadow:
-      0 0 0 2px #1a2e3e,
-      0 0 0 3px rgba(80, 120, 150, 0.2),
+      0 0 0 2px #151a1a,
+      0 0 0 3px rgba(255, 255, 255, 0.05),
       0 2px 4px rgba(0, 0, 0, 0.5);
     z-index: 2;
     display: flex;
@@ -468,11 +466,11 @@ const label = isActive
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    border: 2px solid #3a5a70;
+    border: 2px solid #2a3030;
     background: transparent;
     box-shadow:
       inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(100, 150, 180, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
       0 1px 2px rgba(0, 0, 0, 0.3);
     position: relative;
     top: 1px;
@@ -487,7 +485,7 @@ const label = isActive
     width: 3px;
     height: 2px;
     border-radius: 50%;
-    background: rgba(120, 170, 200, 0.35);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   /* ===== Inactive door — grey, flat ===== */
@@ -553,7 +551,7 @@ const label = isActive
     right: -8px;
     width: 8px;
     height: 100%;
-    background: linear-gradient(90deg, #1a2530, #141e28);
+    background: linear-gradient(90deg, #141a1a, #0e1212);
     transform: rotateY(90deg);
     transform-origin: left center;
     box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
