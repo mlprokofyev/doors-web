@@ -23,52 +23,92 @@ const label = isActive
     data-password={password}
   >
     <div class="door__ornate-frame">
-      <div class="door__crown">
-        <div class="door__crown-sun"></div>
-      </div>
+      <div class="door__crown"></div>
       <div class="door__body">
-        <div class="door__pillar door__pillar--left">
-          <div class="door__pillar-cap"></div>
-          <div class="door__pillar-motif"></div>
-          <div class="door__pillar-motif"></div>
-          <div class="door__pillar-motif"></div>
-          <div class="door__pillar-motif"></div>
-          <div class="door__pillar-foot"></div>
-        </div>
+        <div class="door__pillar door__pillar--left"></div>
         <div class="door__inner">
-          <div class="door__panel door__panel--active">
-            <div class="door__half door__half--left">
-              <div class="door__cell door__cell--top"></div>
-              <div class="door__cell"></div>
-              <div class="door__cell door__cell--accent"></div>
-              <div class="door__cell"></div>
-              <div class="door__cell door__cell--accent"></div>
-              <div class="door__cell"></div>
-              <div class="door__cell door__cell--bottom"></div>
-            </div>
-            <div class="door__half door__half--right">
-              <div class="door__cell door__cell--top"></div>
-              <div class="door__cell"></div>
-              <div class="door__cell door__cell--accent"></div>
-              <div class="door__cell"></div>
-              <div class="door__cell door__cell--accent"></div>
-              <div class="door__cell"></div>
-              <div class="door__cell door__cell--bottom"></div>
-            </div>
-            <span class="door__number door__number--active">{number}</span>
-            <div class="door__handle">
-              <div class="door__handle-ring"></div>
-            </div>
-          </div>
+          <svg class="door__leaf" viewBox="0 0 300 440" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <radialGradient id={`leafBg${number}`} cx="50%" cy="30%" r="90%">
+                <stop offset="0%" stop-color="#EFE1B4" />
+                <stop offset="100%" stop-color="#E1CB92" />
+              </radialGradient>
+              <g id={`fl${number}`}>
+                <ellipse cx="0" cy="-9" rx="4.5" ry="8" fill="#C0452C" />
+                <ellipse cx="0" cy="-9" rx="4.5" ry="8" fill="#C0452C" transform="rotate(60)" />
+                <ellipse cx="0" cy="-9" rx="4.5" ry="8" fill="#C0452C" transform="rotate(120)" />
+                <ellipse cx="0" cy="-9" rx="4.5" ry="8" fill="#B23D25" transform="rotate(180)" />
+                <ellipse cx="0" cy="-9" rx="4.5" ry="8" fill="#B23D25" transform="rotate(240)" />
+                <ellipse cx="0" cy="-9" rx="4.5" ry="8" fill="#B23D25" transform="rotate(300)" />
+                <circle cx="0" cy="0" r="4.5" fill="#7E2B18" />
+                <circle cx="0" cy="0" r="2" fill="#E0A34F" />
+              </g>
+              <g id={`lp${number}`}>
+                <ellipse cx="-6" cy="0" rx="6.5" ry="2.6" fill="#57703F" transform="rotate(-28 -6 0)" />
+                <ellipse cx="6" cy="0" rx="6.5" ry="2.6" fill="#57703F" transform="rotate(28 6 0)" />
+              </g>
+              <g id={`sprig${number}`}>
+                <path d="M0,52 C-2,34 2,18 0,0" stroke="#465D33" stroke-width="2.5" fill="none" />
+                <use href={`#lp${number}`} y="40" />
+                <use href={`#lp${number}`} y="26" />
+                <use href={`#lp${number}`} y="13" />
+                <use href={`#fl${number}`} />
+              </g>
+            </defs>
+
+            <rect x="0" y="0" width="300" height="440" fill={`url(#leafBg${number})`} />
+
+            <!-- vine border -->
+            <rect x="12" y="12" width="276" height="416" rx="10" fill="none" stroke="#57703F" stroke-width="1.6" />
+            <g fill="#5B7442">
+              <ellipse cx="45" cy="12" rx="6" ry="2.4" transform="rotate(-24 45 12)" /><ellipse cx="75" cy="12" rx="6" ry="2.4" transform="rotate(22 75 12)" /><ellipse cx="105" cy="12" rx="6" ry="2.4" transform="rotate(-22 105 12)" /><ellipse cx="135" cy="12" rx="6" ry="2.4" transform="rotate(24 135 12)" /><ellipse cx="165" cy="12" rx="6" ry="2.4" transform="rotate(-24 165 12)" /><ellipse cx="195" cy="12" rx="6" ry="2.4" transform="rotate(22 195 12)" /><ellipse cx="225" cy="12" rx="6" ry="2.4" transform="rotate(-22 225 12)" /><ellipse cx="255" cy="12" rx="6" ry="2.4" transform="rotate(24 255 12)" />
+              <ellipse cx="45" cy="428" rx="6" ry="2.4" transform="rotate(22 45 428)" /><ellipse cx="75" cy="428" rx="6" ry="2.4" transform="rotate(-24 75 428)" /><ellipse cx="105" cy="428" rx="6" ry="2.4" transform="rotate(24 105 428)" /><ellipse cx="135" cy="428" rx="6" ry="2.4" transform="rotate(-22 135 428)" /><ellipse cx="165" cy="428" rx="6" ry="2.4" transform="rotate(22 165 428)" /><ellipse cx="195" cy="428" rx="6" ry="2.4" transform="rotate(-24 195 428)" /><ellipse cx="225" cy="428" rx="6" ry="2.4" transform="rotate(24 225 428)" /><ellipse cx="255" cy="428" rx="6" ry="2.4" transform="rotate(-22 255 428)" />
+              <ellipse cx="12" cy="50" rx="2.4" ry="6" transform="rotate(-24 12 50)" /><ellipse cx="12" cy="95" rx="2.4" ry="6" transform="rotate(22 12 95)" /><ellipse cx="12" cy="140" rx="2.4" ry="6" transform="rotate(-22 12 140)" /><ellipse cx="12" cy="185" rx="2.4" ry="6" transform="rotate(24 12 185)" /><ellipse cx="12" cy="230" rx="2.4" ry="6" transform="rotate(-24 12 230)" /><ellipse cx="12" cy="275" rx="2.4" ry="6" transform="rotate(22 12 275)" /><ellipse cx="12" cy="320" rx="2.4" ry="6" transform="rotate(-22 12 320)" /><ellipse cx="12" cy="365" rx="2.4" ry="6" transform="rotate(24 12 365)" /><ellipse cx="12" cy="405" rx="2.4" ry="6" transform="rotate(-24 12 405)" />
+              <ellipse cx="288" cy="50" rx="2.4" ry="6" transform="rotate(24 288 50)" /><ellipse cx="288" cy="95" rx="2.4" ry="6" transform="rotate(-22 288 95)" /><ellipse cx="288" cy="140" rx="2.4" ry="6" transform="rotate(22 288 140)" /><ellipse cx="288" cy="185" rx="2.4" ry="6" transform="rotate(-24 288 185)" /><ellipse cx="288" cy="230" rx="2.4" ry="6" transform="rotate(24 288 230)" /><ellipse cx="288" cy="275" rx="2.4" ry="6" transform="rotate(-22 288 275)" /><ellipse cx="288" cy="320" rx="2.4" ry="6" transform="rotate(22 288 320)" /><ellipse cx="288" cy="365" rx="2.4" ry="6" transform="rotate(-24 288 365)" /><ellipse cx="288" cy="405" rx="2.4" ry="6" transform="rotate(24 288 405)" />
+            </g>
+            <g fill="#B5482B">
+              <circle cx="30" cy="12" r="2.2" /><circle cx="150" cy="12" r="2.2" /><circle cx="270" cy="12" r="2.2" />
+              <circle cx="30" cy="428" r="2.2" /><circle cx="150" cy="428" r="2.2" /><circle cx="270" cy="428" r="2.2" />
+              <circle cx="12" cy="72" r="2.2" /><circle cx="12" cy="207" r="2.2" /><circle cx="12" cy="342" r="2.2" />
+              <circle cx="288" cy="72" r="2.2" /><circle cx="288" cy="207" r="2.2" /><circle cx="288" cy="342" r="2.2" />
+            </g>
+
+            <!-- ogee arch with bouquet -->
+            <path d="M48,118 C44,66 98,54 150,26 C202,54 256,66 252,118 Z" fill="#EDB792" stroke="#A63B22" stroke-width="5" stroke-linejoin="round" />
+            <use href={`#sprig${number}`} x="150" y="58" />
+            <use href={`#sprig${number}`} x="118" y="70" transform="rotate(-18 118 70)" />
+            <use href={`#sprig${number}`} x="182" y="70" transform="rotate(18 182 70)" />
+
+            <!-- big panels -->
+            <rect x="34" y="130" width="108" height="108" rx="12" fill="#EBDCAC" stroke="#A63B22" stroke-width="5" />
+            <rect x="158" y="130" width="108" height="108" rx="12" fill="#EBDCAC" stroke="#A63B22" stroke-width="5" />
+            <rect x="34" y="252" width="108" height="108" rx="12" fill="#EBDCAC" stroke="#A63B22" stroke-width="5" />
+            <rect x="158" y="252" width="108" height="108" rx="12" fill="#EBDCAC" stroke="#A63B22" stroke-width="5" />
+            <use href={`#sprig${number}`} x="88" y="164" transform="scale(1.15) translate(-12 -22)" />
+            <use href={`#sprig${number}`} x="212" y="164" transform="scale(1.15) translate(-28 -22)" />
+            <use href={`#sprig${number}`} x="88" y="286" transform="scale(1.15) translate(-12 -38)" />
+            <use href={`#sprig${number}`} x="212" y="286" transform="scale(1.15) translate(-28 -38)" />
+
+            <!-- small bottom panels -->
+            <rect x="34" y="374" width="108" height="52" rx="10" fill="#EBDCAC" stroke="#A63B22" stroke-width="4.5" />
+            <rect x="158" y="374" width="108" height="52" rx="10" fill="#EBDCAC" stroke="#A63B22" stroke-width="4.5" />
+            <g transform="translate(88 412) scale(0.55)">
+              <use href={`#fl${number}`} x="0" y="-18" /><use href={`#fl${number}`} x="-26" y="-6" /><use href={`#fl${number}`} x="26" y="-6" />
+              <path d="M0,10 L0,-10 M0,10 L-22,2 M0,10 L22,2" stroke="#465D33" stroke-width="3" fill="none" />
+            </g>
+            <g transform="translate(212 412) scale(0.55)">
+              <use href={`#fl${number}`} x="0" y="-18" /><use href={`#fl${number}`} x="-26" y="-6" /><use href={`#fl${number}`} x="26" y="-6" />
+              <path d="M0,10 L0,-10 M0,10 L-22,2 M0,10 L22,2" stroke="#465D33" stroke-width="3" fill="none" />
+            </g>
+
+            <!-- handle -->
+            <rect x="278" y="212" width="14" height="34" rx="6" fill="#3A3230" />
+            <ellipse cx="285" cy="222" rx="8" ry="9" fill="#4A403C" />
+            <ellipse cx="283" cy="219" rx="3" ry="3.5" fill="#5C504A" />
+          </svg>
+          <span class="door__number door__number--active">{number}</span>
         </div>
-        <div class="door__pillar door__pillar--right">
-          <div class="door__pillar-cap"></div>
-          <div class="door__pillar-motif"></div>
-          <div class="door__pillar-motif"></div>
-          <div class="door__pillar-motif"></div>
-          <div class="door__pillar-motif"></div>
-          <div class="door__pillar-foot"></div>
-        </div>
+        <div class="door__pillar door__pillar--right"></div>
       </div>
       <div class="door__base"></div>
     </div>
@@ -124,8 +164,8 @@ const label = isActive
     z-index: 1;
   }
 
-  .door--active:hover .door__panel--active {
-    filter: brightness(1.12);
+  .door--active:hover .door__leaf {
+    filter: brightness(1.08);
   }
 
   .door--active:hover .door__ornate-frame {
@@ -142,288 +182,76 @@ const label = isActive
     transition: box-shadow 0.3s;
   }
 
-  /* ---- Crown molding with sun motif ---- */
+  /* ---- Crown molding — dark stained wood ---- */
   .door__crown {
     width: 100%;
-    height: 7%;
-    background: linear-gradient(180deg, #222828 0%, #1c2222 30%, #181e1e 60%, #141a1a 100%);
-    border-radius: 2px 2px 0 0;
+    height: 6%;
+    background: linear-gradient(180deg, #7B4E28 0%, #6B4423 35%, #56361B 70%, #472C15 100%);
+    border-radius: 3px 3px 0 0;
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.06),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.5);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      inset 0 2px 0 rgba(255, 220, 170, 0.15),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.45);
   }
 
-  /* Carved dentil row */
-  .door__crown::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 3%;
-    right: 3%;
-    height: 35%;
-    background: repeating-linear-gradient(
-      90deg,
-      #222828 0px, #222828 2px,
-      #141a1a 2px, #141a1a 4px
-    );
-    image-rendering: pixelated;
-  }
-
-  /* Top carved rope/braid pattern */
-  .door__crown::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 3%;
-    right: 3%;
-    height: 30%;
-    background: repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 3px,
-      transparent 3px, transparent 4px,
-      rgba(255, 255, 255, 0.03) 4px, rgba(255, 255, 255, 0.03) 5px,
-      transparent 5px, transparent 8px
-    );
-    image-rendering: pixelated;
-  }
-
-  /* Solar/sun symbol in crown center */
-  .door__crown-sun {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #303838 0%, #222828 60%, #181e1e 100%);
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.08),
-      0 0 4px rgba(0, 0, 0, 0.4);
-    z-index: 1;
-    position: relative;
-  }
-
-  /* Sun rays */
-  .door__crown-sun::after {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    border: 1px dashed rgba(255, 255, 255, 0.08);
-  }
-
-  /* ---- Main body: pillars + door ---- */
+  /* ---- Main body: jambs + door ---- */
   .door__body {
     flex: 1;
     display: flex;
     min-height: 0;
   }
 
-  /* Ornate side pillars — carved wood */
+  /* Side jambs — stained wood with grain */
   .door__pillar {
-    width: 12%;
-    background: linear-gradient(180deg, #1c2222 0%, #181e1e 40%, #141a1a 70%, #111616 100%);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2px 0;
-    gap: 1px;
-  }
-
-  /* Pillar column cap */
-  .door__pillar-cap {
-    width: 80%;
-    height: 4%;
-    min-height: 4px;
-    background: linear-gradient(180deg, #222828, #181e1e);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.06),
-      0 1px 0 rgba(0, 0, 0, 0.4);
-  }
-
-  /* Repeating diamond/rhombus motif blocks */
-  .door__pillar-motif {
-    flex: 1;
-    width: 70%;
-    position: relative;
-    background: linear-gradient(180deg, #181e1e, #1c2222 50%, #181e1e);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-  }
-
-  /* Diamond shape inside each motif */
-  .door__pillar-motif::before {
-    content: '';
-    position: absolute;
-    top: 15%;
-    left: 15%;
-    right: 15%;
-    bottom: 15%;
-    background: rgba(255, 255, 255, 0.03);
-    transform: rotate(45deg);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.05),
-      0 0 2px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Dot at diamond center */
-  .door__pillar-motif::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 2px;
-    height: 2px;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-  }
-
-  /* Pillar foot */
-  .door__pillar-foot {
-    width: 80%;
-    height: 4%;
-    min-height: 4px;
-    background: linear-gradient(180deg, #181e1e, #111616);
-    box-shadow:
-      inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-      0 -1px 0 rgba(255, 255, 255, 0.03);
+    width: 9%;
+    background:
+      repeating-linear-gradient(
+        180deg,
+        transparent 0px, transparent 7px,
+        rgba(0, 0, 0, 0.08) 7px, rgba(0, 0, 0, 0.08) 8px
+      ),
+      linear-gradient(90deg, #6B4423 0%, #5C3A1E 50%, #4A2E15 100%);
   }
 
   .door__pillar--left {
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.4), inset 1px 0 0 rgba(255, 255, 255, 0.03);
+    box-shadow: inset -2px 0 3px rgba(0, 0, 0, 0.5), inset 1px 0 0 rgba(255, 220, 170, 0.1);
   }
 
   .door__pillar--right {
-    box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.4), inset -1px 0 0 rgba(255, 255, 255, 0.03);
+    background:
+      repeating-linear-gradient(
+        180deg,
+        transparent 0px, transparent 7px,
+        rgba(0, 0, 0, 0.08) 7px, rgba(0, 0, 0, 0.08) 8px
+      ),
+      linear-gradient(270deg, #6B4423 0%, #5C3A1E 50%, #4A2E15 100%);
+    box-shadow: inset 2px 0 3px rgba(0, 0, 0, 0.5), inset -1px 0 0 rgba(255, 220, 170, 0.1);
   }
 
   /* ---- Inner door area ---- */
   .door__inner {
     flex: 1;
     min-width: 0;
-    background: #111616;
-    padding: 3px 2px;
-  }
-
-  /* Door panel */
-  .door__panel--active {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    background: linear-gradient(175deg, #55363e 0%, #4a2e34 30%, #40252c 60%, #352025 100%);
-    transition: filter 0.2s;
-    position: relative;
-  }
-
-  /* Each door half */
-  .door__half {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    background: #3E2512;
     padding: 2px;
   }
 
-  .door__half--left {
-    border-right: 1px solid rgba(0, 0, 0, 0.3);
-  }
-
-  .door__half--right {
-    border-left: 1px solid rgba(120, 70, 80, 0.1);
-  }
-
-  /* Recessed panel cell — warm wood */
-  .door__cell {
-    flex: 1;
-    background: linear-gradient(170deg, #503a42 0%, #422e36 50%, #3a2830 100%);
-    box-shadow:
-      inset 1px 1px 0 rgba(140, 80, 95, 0.2),
-      inset -1px -1px 0 rgba(0, 0, 0, 0.35),
-      inset 2px 2px 3px rgba(0, 0, 0, 0.15),
-      inset -2px -2px 3px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-
-  /* Accent cells — with carved rosette/circle motif */
-  .door__cell--accent::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    aspect-ratio: 1;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    border: 1px solid rgba(160, 90, 110, 0.18);
-    background: radial-gradient(circle, rgba(150, 80, 100, 0.08) 0%, transparent 70%);
-    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Top cells — subtle arch carved line */
-  .door__cell--top {
-    border-radius: 1px 1px 0 0;
-  }
-
-  .door__cell--top::after {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 15%;
-    right: 15%;
-    height: 40%;
-    border-radius: 50% 50% 0 0;
-    border-top: 1px solid rgba(160, 90, 110, 0.15);
-    border-left: 1px solid rgba(160, 90, 110, 0.1);
-    border-right: 1px solid rgba(160, 90, 110, 0.1);
-  }
-
-  /* Bottom cells — horizontal carved line */
-  .door__cell--bottom::after {
-    content: '';
-    position: absolute;
-    bottom: 25%;
-    left: 20%;
-    right: 20%;
-    height: 0;
-    border-bottom: 1px solid rgba(160, 90, 110, 0.12);
-  }
-
-  /* Wood grain texture overlay on entire panel */
-  .door__panel--active::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      repeating-linear-gradient(
-        175deg,
-        transparent 0px,
-        transparent 4px,
-        rgba(0, 0, 0, 0.04) 4px,
-        rgba(0, 0, 0, 0.04) 5px,
-        transparent 5px,
-        transparent 11px,
-        rgba(160, 90, 110, 0.03) 11px,
-        rgba(160, 90, 110, 0.03) 12px,
-        transparent 12px,
-        transparent 18px
-      );
-    pointer-events: none;
-    z-index: 1;
+  /* Painted leaf */
+  .door__leaf {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: filter 0.2s;
   }
 
   /* ---- Base/threshold ---- */
   .door__base {
     width: 100%;
     height: 3%;
-    background: linear-gradient(180deg, #141a1a, #0e1212);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    background: linear-gradient(180deg, #56361B, #3E2512);
+    box-shadow: inset 0 1px 0 rgba(255, 220, 170, 0.12);
   }
 
-  /* ---- Number plaque — brass/gold ---- */
+  /* ---- Number plaque — painted on the leaf ---- */
   .door__number--active {
     position: absolute;
     top: 5%;
@@ -431,63 +259,15 @@ const label = isActive
     transform: translateX(-50%);
     font-family: var(--font-pixel);
     font-size: clamp(0.45rem, 1.2vw, 0.6rem);
-    color: #c8a0a8;
+    color: #7E2B18;
     pointer-events: none;
     z-index: 2;
-    text-shadow:
-      0 1px 1px rgba(0, 0, 0, 0.9),
-      0 0 4px rgba(180, 100, 120, 0.3);
-    background: rgba(40, 18, 22, 0.6);
+    text-shadow: 0 1px 0 rgba(255, 245, 215, 0.5);
+    background: rgba(238, 224, 178, 0.85);
     padding: 1px 4px;
     line-height: 1.4;
-    border: 1px solid rgba(160, 90, 110, 0.2);
-  }
-
-  /* ---- Oriental ring-pull handle ---- */
-  .door__handle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 40% 35%, #252b2b, #1a1e1e 60%, #111414);
-    box-shadow:
-      0 0 0 2px #151a1a,
-      0 0 0 3px rgba(255, 255, 255, 0.05),
-      0 2px 4px rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Raised ring */
-  .door__handle-ring {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 2px solid #2a3030;
-    background: transparent;
-    box-shadow:
-      inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
-      0 1px 2px rgba(0, 0, 0, 0.3);
-    position: relative;
-    top: 1px;
-  }
-
-  /* Highlight glint on ring */
-  .door__handle-ring::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 2px;
-    width: 3px;
-    height: 2px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(166, 59, 34, 0.45);
+    border-radius: 2px;
   }
 
   /* ===== Inactive door — grey, flat ===== */
