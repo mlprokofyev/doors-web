@@ -19,6 +19,7 @@ import '../../styles/doors.css';
         status={door.status as 'active' | 'inactive'}
         title={door.title}
         password={(door as { password?: string }).password}
+        design={(door as { design?: 'painted' }).design}
       />
     ))}
   </main>
