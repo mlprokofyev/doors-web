@@ -3,9 +3,10 @@ interface Props {
   number: number;
   status: 'active' | 'inactive';
   title?: string;
+  password?: string;
 }
 
-const { number, status, title } = Astro.props;
+const { number, status, title, password } = Astro.props;
 const isActive = status === 'active';
 const href = isActive ? `/doors/${number}/` : undefined;
 const label = isActive
@@ -19,6 +20,7 @@ const label = isActive
     class="door door--active"
     aria-label={label}
     data-door={number}
+    data-password={password}
   >
     <div class="door__ornate-frame">
       <div class="door__crown">

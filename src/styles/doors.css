@@ -42,3 +42,72 @@
   opacity: 1;
   pointer-events: all;
 }
+
+/* Password gate — shown before opening a locked-with-password door */
+.password-gate {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+}
+
+.password-gate__panel {
+  background: var(--color-bg-surface);
+  border: 1px solid rgba(200, 169, 110, 0.35);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: min(90vw, 320px);
+}
+
+.password-gate__title {
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.password-gate__input {
+  font-family: var(--font-pixel);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: #0a0a0a;
+  border: 1px solid rgba(200, 169, 110, 0.25);
+  outline: none;
+  padding: 0.6rem 0.8rem;
+  width: 10ch;
+  text-align: center;
+  letter-spacing: 0.3em;
+  caret-color: var(--color-accent);
+}
+
+.password-gate__input:focus {
+  border-color: rgba(200, 169, 110, 0.6);
+}
+
+.password-gate__hint {
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+}
+
+.password-gate__panel--wrong {
+  animation: gateShake 300ms steps(4);
+}
+
+@keyframes gateShake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}

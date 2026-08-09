@@ -18,6 +18,7 @@ import '../../styles/doors.css';
         number={door.number}
         status={door.status as 'active' | 'inactive'}
         title={door.title}
+        password={(door as { password?: string }).password}
       />
     ))}
   </main>
