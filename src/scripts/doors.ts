@@ -52,7 +52,7 @@ function showPasswordGate(
       <input
         class="password-gate__input"
         type="password"
-        inputmode="numeric"
+        inputmode="text"
         autocomplete="off"
         maxlength="16"
         aria-label="Password"
