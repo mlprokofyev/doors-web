@@ -76,6 +76,11 @@
 }
 
 .password-gate__input {
+  /* Masking lives here (not type="password"): secure text fields force an ASCII-only
+     keyboard on iOS and block the layout/globe switch, which made the Cyrillic
+     password untypeable on mobile. type="text" + text-security keeps the dots. */
+  -webkit-text-security: disc;
+  text-security: disc;
   font-family: var(--font-pixel);
   font-size: 0.9rem;
   color: var(--color-text);

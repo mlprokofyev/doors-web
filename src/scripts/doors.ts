@@ -51,9 +51,12 @@ function showPasswordGate(
       <div class="password-gate__title">This door is locked</div>
       <input
         class="password-gate__input"
-        type="password"
+        type="text"
         inputmode="text"
         autocomplete="off"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
         maxlength="16"
         aria-label="Password"
       />
@@ -72,7 +75,7 @@ function showPasswordGate(
   };
 
   const submit = (): void => {
-    if (input.value === expected) {
+    if (input.value.trim() === expected) {
       close();
       openDoor(door, overlay, href);
     } else {
