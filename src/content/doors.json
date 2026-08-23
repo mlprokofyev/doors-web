@@ -2,7 +2,7 @@
   { "number": 1, "status": "active", "title": "Perun Pixel" },
   { "number": 2, "status": "inactive" },
   { "number": 3, "status": "inactive" },
-  { "number": 4, "status": "active", "title": "Perun", "password": "петух", "design": "painted" },
+  { "number": 4, "status": "active", "title": "Perun", "design": "painted" },
   { "number": 5, "status": "inactive" },
   { "number": 6, "status": "inactive" },
   { "number": 7, "status": "inactive" },
